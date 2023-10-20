@@ -14,13 +14,26 @@
   <div class="container">
 
     <input type="checkbox" id="check">
-    <div class="registration form">
+    <div class="register form">
       <header>Signup</header>
-      <form action="#">
-        <input type="text" placeholder="Enter your email">
-        <input type="password" placeholder="Create a password">
-        <input type="password" placeholder="Confirm your password">
-        <input type="button" class="button" value="Signup">
+      <form method="post">
+        {% csrf_token %}
+
+          {% if form.errors %}
+         {% for field in form %}
+             {% for error in field.errors %}
+                <div class="alert alert-danger">
+                     <strong>{{ error|escape }}</strong>
+                </div>
+             {% endfor %}
+         {% endfor %}
+      {% endif %}
+
+        {{form.username}}
+        {{form.email}}
+        {{form.password1}}
+        {{form.password2}}
+        <input type="submit" class="button" value="Signup">
       </form>
       <div class="signup">
         <span class="signup">Already have an account?
