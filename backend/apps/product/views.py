@@ -44,11 +44,4 @@ class DetailCarView(DetailView):
     template_name = 'car_detail.html'
 
 
-привет
-
-sdfsdfs
-
-sdfsdf
-
-
-sdf
+print("HELLOO")
