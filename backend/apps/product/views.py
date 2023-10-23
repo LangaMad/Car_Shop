@@ -45,3 +45,10 @@ class DetailCarView(DetailView):
 
 
 привет
+
+sdfsdfs
+
+sdfsdf
+
+
+sdf
