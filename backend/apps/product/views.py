@@ -44,6 +44,8 @@ class DetailCarView(DetailView):
     template_name = 'car_detail.html'
 
 print('Heloo')
+
+
 print('Hello TIlek' "SOLID SOLID")
 
 print("Daniyar")
