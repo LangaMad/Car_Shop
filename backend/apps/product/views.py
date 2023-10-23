@@ -53,5 +53,3 @@ print('baku')
 print("ПРИВЕТ от Айдара")
 
 print('че шаурму похаваем ?')
-
-print('Heelooo')
