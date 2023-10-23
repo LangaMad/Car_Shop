@@ -8,13 +8,13 @@ class CarFilter(django_filters.FilterSet):
         queryset=Car.objects.all(),
         widget=forms.Select()
     )
-    age = django_filters.NumberFilter(
-        field_name='age'
-    )
 
     class Meta:
         model = Car
-        fields = [
-            'transmission',
-            'age',
-            ]
+        fields = {
+            'transmission':['exact'],
+            'name':['icontains'],
+            'price':['exact','gte'],
+            'mileage':['exact','gte']
+
+        }
