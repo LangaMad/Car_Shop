@@ -43,7 +43,13 @@ class SearchCarView(ListView):
 class DetailCarView(DetailView):
     template_name = 'car_detail.html'
 
-
-print("HELLOO")
+print('Heloo')
+print('Hello TIlek' "SOLID SOLID")
 
 print("Daniyar")
+
+print('baku')
+
+print("ПРИВЕТ от Айдара")
+
+print('че шаурму похаваем ?')
