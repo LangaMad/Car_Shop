@@ -47,4 +47,3 @@ class DetailCarView(DetailView):
 print("HELLOO")
 
 print("Daniyar")
-print("It's working")
