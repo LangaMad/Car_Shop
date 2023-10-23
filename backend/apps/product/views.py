@@ -51,3 +51,5 @@ print("Daniyar")
 print('baku')
 
 print("ПРИВЕТ от Айдара")
+
+print('че шаурму похаваем ?')
