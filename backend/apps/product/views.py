@@ -48,4 +48,6 @@ print("HELLOO")
 
 print("Daniyar")
 
+print('baku')
+
 print("ПРИВЕТ от Айдара")
