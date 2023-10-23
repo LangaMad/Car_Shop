@@ -47,3 +47,5 @@ class DetailCarView(DetailView):
 print("HELLOO")
 
 print("Daniyar")
+
+print("ПРИВЕТ от Айдара")
