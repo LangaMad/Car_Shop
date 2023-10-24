@@ -12,6 +12,7 @@ class ProductView(FilterView):
     filterset_class = CarFilter
     context_object_name = 'car'
 
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['filter'] = CarFilter(self.request.GET, queryset=self.get_queryset())
@@ -43,16 +44,39 @@ class SearchCarView(ListView):
 class DetailCarView(DetailView):
     template_name = 'car_detail.html'
 
-print('Heloo')
 
 
-print('Hello TIlek' "SOLID SOLID")
 
-print("Daniyar")
 
-print('baku')
 
-print("ПРИВЕТ от Айдара")
 
-print('че шаурму похаваем ?')
-print('че Похавали шаурму ?')
+
+
+
+
+
+
+
+
+
+print("Baku cringe")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
