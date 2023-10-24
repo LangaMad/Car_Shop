@@ -56,7 +56,7 @@ class DetailCarView(DetailView):
 
 
 
-print("Baku cringe")
+print("XASAN cringe")
 
 
 
