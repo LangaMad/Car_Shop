@@ -20,7 +20,7 @@ class ProductView(FilterView):
 
 
 class SearchCarView(ListView):
-    template_name = 'index.html'
+    template_name = 'search.html'
     model = Car
 
     def get_queryset(self):
@@ -43,9 +43,6 @@ class SearchCarView(ListView):
 
 class DetailCarView(DetailView):
     template_name = 'car_detail.html'
-
-
-print("helooo")
 
 
 
