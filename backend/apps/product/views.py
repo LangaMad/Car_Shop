@@ -23,6 +23,12 @@ class CarImageAPIview(ListAPIView):
     model = CarImage
     queryset = CarImage.objects.all()
 
+
+class CarImageCreateAPIview(CreateAPIView):
+    serializer_class = CarImageSerializer
+    queryset = Car.objects.all()
+
+
 class ProductView(FilterView):
     model = Car
     template_name = 'index.html'

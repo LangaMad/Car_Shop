@@ -7,6 +7,7 @@ urlpatterns = [
     path('detail/<int:pk>/',DetailCarView.as_view(),name = 'car_detail'),
     path('car/list/', CarListAPIview.as_view()),
     path('car/create/',CarCreateAPIview.as_view()),
-    path('car/image/',CarImageAPIview.as_view())
+    path('car/image/',CarImageAPIview.as_view()),
+    path('car/createimage/',CarImageCreateAPIview.as_view()),
 
 ]
