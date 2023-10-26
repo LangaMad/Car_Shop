@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from .models import Car
+from .models import Car,CarImage
 from django.views.generic import  ListView,DetailView
 from django_filters.views import FilterView
 from .filters import CarFilter
 from django.db.models import Q
 from rest_framework.generics import ListAPIView,CreateAPIView
-from .serializers import CarSerializer
+from .serializers import CarSerializer,CarImageSerializer
 # Create your views here.
 
 class CarListAPIview(ListAPIView):
@@ -19,7 +19,9 @@ class CarCreateAPIview(CreateAPIView):
 
 
 class CarImageAPIview(ListAPIView):
-    pass
+    serializer_class = CarImageSerializer
+    model = CarImage
+    queryset = CarImage.objects.all()
 
 class ProductView(FilterView):
     model = Car
