@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Car,CarImage
 
 class CarSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField()
     class Meta:
         model = Car
         fields = "__all__"
@@ -9,6 +10,7 @@ class CarSerializer(serializers.ModelSerializer):
 
 
 class CarImageSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = CarImage
         fields = "__all__"
