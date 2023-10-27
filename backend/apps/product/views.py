@@ -10,7 +10,7 @@ from .serialazers import CarSeriliszer,CarImageSeriliszer
 
 class CarListAPIview(ListAPIView):
     serializer_class = CarSeriliszer
-    model =Car
+    model = Car
     queryset = Car.objects.all()
 
 
