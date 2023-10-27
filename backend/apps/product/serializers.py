@@ -10,7 +10,7 @@ class CarSerializer(serializers.ModelSerializer):
 
 
 class CarImageSerializer(serializers.ModelSerializer):
-
+    car = CarSerializer()
     class Meta:
         model = CarImage
         fields = "__all__"
