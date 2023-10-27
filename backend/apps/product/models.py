@@ -45,6 +45,7 @@ class Car(models.Model):
                                  default="Нет",max_length=50)
 
 
+
     class Meta:
         verbose_name = 'Машина'
         verbose_name_plural = 'Машины'
