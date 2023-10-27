@@ -1,33 +1,10 @@
 from django.shortcuts import render
-from .models import Car,CarImage
+from .models import Car
 from django.views.generic import  ListView,DetailView
 from django_filters.views import FilterView
 from .filters import CarFilter
 from django.db.models import Q
-from rest_framework.generics import ListAPIView,CreateAPIView
-from .serializers import CarSerializer,CarImageSerializer
 # Create your views here.
-
-class CarListAPIview(ListAPIView):
-    serializer_class = CarSerializer
-    model = Car
-    queryset = Car.objects.all()
-
-class CarCreateAPIview(CreateAPIView):
-    serializer_class = CarSerializer
-    queryset = Car.objects.all()
-
-
-class CarImageAPIview(ListAPIView):
-    serializer_class = CarImageSerializer
-    model = CarImage
-    queryset = CarImage.objects.all()
-
-
-class CarImageCreateAPIview(CreateAPIView):
-    serializer_class = CarImageSerializer
-    queryset = Car.objects.all()
-
 
 class ProductView(FilterView):
     model = Car
@@ -100,3 +77,4 @@ class DetailCarView(DetailView):
 
 
 
+print("Baku cringe")
