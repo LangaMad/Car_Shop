@@ -44,6 +44,7 @@ class Car(models.Model):
     condition = models.CharField("Состояние", choices=CONDITION_CHOICE,
                                  default="Нет",max_length=50)
 
+
     class Meta:
         verbose_name = 'Машина'
         verbose_name_plural = 'Машины'
