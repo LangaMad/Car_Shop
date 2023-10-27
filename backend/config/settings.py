@@ -40,8 +40,6 @@ INSTALLED_APPS = [
 
     'rest_framework',
 
-    'rest_framework',
-
     # my_apps
     'apps.account',
     'apps.product',
