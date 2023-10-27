@@ -9,7 +9,7 @@ class CarSeriliszer(serializers.ModelSerializer):
         read_only_fields =['id']
 
 class CarImageSeriliszer(serializers.ModelSerializer):
-
+    car = CarSeriliszer()
     class Meta:
         model = CarImage
         fields = '__all__'
