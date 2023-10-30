@@ -7,7 +7,6 @@ from django.db.models import Q
 from rest_framework.generics import *
 from .serializers import CarSerializer,CarImageSerializer
 from rest_framework.viewsets import *
-# Create your views here.
 
 
 
