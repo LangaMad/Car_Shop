@@ -6,11 +6,12 @@ from rest_framework import routers
 
 router = routers.SimpleRouter()
 router.register("car",CarAllAPIview)
+print(router)
 
 urlpatterns = [
     path('',ProductView.as_view(),name = 'index'),
     path('detail/<int:pk>/',DetailCarView.as_view(),name = 'car_detail'),
-    path('cars/',include(router.urls)),
+    path('api/',include(router.urls)),
     # path('cars/list/',CarAllAPIview.as_view({'get':'list'})),
     # path('cars/detail/<int:pk>/',CarAllAPIview.as_view({'put':'update'})),
     # path('car/list/',CarListAPIview.as_view()),
