@@ -6,7 +6,15 @@ from .filters import CarFilter
 from django.db.models import Q
 from rest_framework.generics import *
 from .serializers import CarSerializer,CarImageSerializer
+from rest_framework.viewsets import *
 # Create your views here.
+
+
+
+class CarAllAPIview(ModelViewSet):
+    serializer_class = CarSerializer
+    queryset = Car.objects.all()
+
 
 
 class CarDetailAPIview(RetrieveUpdateDestroyAPIView):
