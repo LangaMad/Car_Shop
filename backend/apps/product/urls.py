@@ -9,5 +9,9 @@ urlpatterns = [
     path('car/create/',CarCreateAPIview.as_view()),
     path('car/image/',CarImageAPIview.as_view()),
     path('car/createimage/',CarImageCreateAPIview.as_view()),
+    path('car/update/<int:pk>/',CarUpdateAPIview.as_view()),
+    path('car/delete/<int:pk>/',CarDeleteAPIview.as_view()),
+    path('car/detail/<int:pk>/',CarDetailAPIview.as_view()),
+
 
 ]

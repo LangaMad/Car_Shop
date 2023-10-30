@@ -4,9 +4,16 @@ from django.views.generic import  ListView,DetailView
 from django_filters.views import FilterView
 from .filters import CarFilter
 from django.db.models import Q
-from rest_framework.generics import ListAPIView, CreateAPIView
+from rest_framework.generics import *
 from .serializers import CarSerializer,CarImageSerializer
 # Create your views here.
+
+
+class CarDetailAPIview(RetrieveUpdateDestroyAPIView):
+    serializer_class = CarSerializer
+    queryset = Car.objects.all()
+
+
 
 class CarListAPIview(ListAPIView):
     serializer_class = CarSerializer
@@ -23,6 +30,14 @@ class CarImageAPIview(ListAPIView):
     model = CarImage
     queryset = CarImage.objects.all()
 
+
+class CarUpdateAPIview(UpdateAPIView):
+    serializer_class = CarSerializer
+    queryset = Car.objects.all()
+
+class CarDeleteAPIview(DestroyAPIView):
+    serializer_class =  CarSerializer
+    queryset = Car.objects.all()
 
 class CarImageCreateAPIview(CreateAPIView):
     serializer_class = CarImageSerializer
