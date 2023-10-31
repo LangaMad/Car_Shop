@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework.response import Response
 from .models import Car,CarImage
 from django.views.generic import  ListView,DetailView
 from django_filters.views import FilterView
@@ -7,12 +8,20 @@ from django.db.models import Q
 from rest_framework.generics import *
 from .serializers import CarSerializer,CarImageSerializer
 from rest_framework.viewsets import *
+from rest_framework.decorators import action
 
 
 
 class CarAllAPIview(ModelViewSet):
-    serializer_class = CarSerializer
-    queryset = Car.objects.all()
+    serializer_class = CarImageSerializer
+    queryset = CarImage.objects.all()
+
+    @action(methods=['get'],detail=False)
+    def car3(self,request):
+        car2 = CarImage.objects.all()
+        return Response({'car':[c.car.name for c in car2]})
+
+
 
 
 
