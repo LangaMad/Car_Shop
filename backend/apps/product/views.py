@@ -10,7 +10,7 @@ from .serializers import CarSerializer,CarImageSerializer
 from rest_framework.viewsets import *
 from rest_framework.decorators import action
 from rest_framework.permissions import *
-from .permission import IsAdminOrReadOnly
+from .permission import IsAdminOrReadOnly,IsOwnerOrReadOnly
 
 
 
@@ -18,10 +18,12 @@ from .permission import IsAdminOrReadOnly
 class CarDeleteAPIview(DestroyAPIView):
     serializer_class =  CarSerializer
     queryset = Car.objects.all()
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = (IsOwnerOrReadOnly,)
 class CarDetailAPIview(RetrieveUpdateDestroyAPIView):
     serializer_class = CarSerializer
     queryset = Car.objects.all()
+    permission_classes = (IsOwnerOrReadOnly,)
+
 class CarListAPIview(ListCreateAPIView):
     serializer_class = CarSerializer
     model = Car
