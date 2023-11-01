@@ -9,56 +9,72 @@ from rest_framework.generics import *
 from .serializers import CarSerializer,CarImageSerializer
 from rest_framework.viewsets import *
 from rest_framework.decorators import action
+from rest_framework.permissions import *
+from .permission import IsAdminOrReadOnly
 
 
 
-class CarAllAPIview(ModelViewSet):
-    serializer_class = CarImageSerializer
-    queryset = CarImage.objects.all()
-
-    @action(methods=['get'],detail=False)
-    def car3(self,request):
-        car2 = CarImage.objects.all()
-        return Response({'car':[c.car.name for c in car2]})
-
-
-
-
-
-class CarDetailAPIview(RetrieveUpdateDestroyAPIView):
-    serializer_class = CarSerializer
-    queryset = Car.objects.all()
-
-
-
-class CarListAPIview(ListAPIView):
-    serializer_class = CarSerializer
-    model = Car
-    queryset = Car.objects.all()
-
-
-class CarCreateAPIview(CreateAPIView):
-    serializer_class = CarSerializer
-    queryset = Car.objects.all()
-
-class CarImageAPIview(ListAPIView):
-    serializer_class = CarImageSerializer
-    model = CarImage
-    queryset = CarImage.objects.all()
-
-
-class CarUpdateAPIview(UpdateAPIView):
-    serializer_class = CarSerializer
-    queryset = Car.objects.all()
 
 class CarDeleteAPIview(DestroyAPIView):
     serializer_class =  CarSerializer
     queryset = Car.objects.all()
-
-class CarImageCreateAPIview(CreateAPIView):
-    serializer_class = CarImageSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+class CarDetailAPIview(RetrieveUpdateDestroyAPIView):
+    serializer_class = CarSerializer
     queryset = Car.objects.all()
+class CarListAPIview(ListCreateAPIView):
+    serializer_class = CarSerializer
+    model = Car
+    queryset = Car.objects.all()
+    permission_classes = (AllowAny,)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+# class CarAllAPIview(ModelViewSet):
+#     serializer_class = CarImageSerializer
+#     queryset = CarImage.objects.all()
+#
+#     @action(methods=['get'],detail=False)
+#     def car3(self,request):
+#         car2 = CarImage.objects.all()
+#         return Response({'car':[c.car.name for c in car2]})
+#
+#
+
+#
+# class CarCreateAPIview(CreateAPIView):
+#     serializer_class = CarSerializer
+#     queryset = Car.objects.all()
+#
+# class CarImageAPIview(ListAPIView):
+#     serializer_class = CarImageSerializer
+#     model = CarImage
+#     queryset = CarImage.objects.all()
+#
+#
+# class CarUpdateAPIview(UpdateAPIView):
+#     serializer_class = CarSerializer
+#     queryset = Car.objects.all()
+#
+
+#
+# class CarImageCreateAPIview(CreateAPIView):
+#     serializer_class = CarImageSerializer
+#     queryset = Car.objects.all()
+#
 
 class ProductView(FilterView):
     model = Car

@@ -1,6 +1,6 @@
 from PIL import Image
 from django.db import models
-
+from ..account.models import User
 
 # Create your models here.
 TRANSMISSION_CHOICE = (
@@ -43,7 +43,7 @@ class Car(models.Model):
                                   max_digits=10)
     condition = models.CharField("Состояние", choices=CONDITION_CHOICE,
                                  default="Нет",max_length=50)
-
+    user = models.ForeignKey(User,verbose_name='Пользователь', on_delete=models.CASCADE)
 
 
     class Meta:
