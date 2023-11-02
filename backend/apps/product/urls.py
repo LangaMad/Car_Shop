@@ -1,4 +1,4 @@
-from django.urls import path,include
+from django.urls import path,include, re_path
 
 from .views import *
 from rest_framework import routers
@@ -15,6 +15,8 @@ urlpatterns = [
     path('car/delete/<int:pk>/', CarDeleteAPIview.as_view()),
     path('car/detail/<int:pk>/', CarDetailAPIview.as_view()),
     path('car/list/',CarListAPIview.as_view()),
+    path('api/v1/auth',include('djoser.urls')),
+    re_path(r'^',include('djoser.urls.authtoken'))
     # path('api/',include(router.urls)),
     # path('cars/list/',CarAllAPIview.as_view({'get':'list'})),
     # path('cars/detail/<int:pk>/',CarAllAPIview.as_view({'put':'update'})),
