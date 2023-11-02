@@ -11,6 +11,7 @@ from rest_framework import routers
 urlpatterns = [
     path('',ProductView.as_view(),name = 'index'),
     path('detail/<int:pk>/',DetailCarView.as_view(),name = 'car_detail'),
+    path('api/v1/drf-auth/', include('rest_framework.urls')),
     path('car/delete/<int:pk>/', CarDeleteAPIview.as_view()),
     path('car/detail/<int:pk>/', CarDetailAPIview.as_view()),
     path('car/list/',CarListAPIview.as_view()),
