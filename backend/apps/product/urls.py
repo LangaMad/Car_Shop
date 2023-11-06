@@ -1,6 +1,11 @@
 from django.urls import path,include,re_path
 
 from .views import *
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView
+)
 from rest_framework import routers
 # Create your views here.
 
@@ -15,8 +20,11 @@ urlpatterns = [
     path('car/delete/<int:pk>/', CarDeleteAPIview.as_view()),
     path('car/detail/<int:pk>/', CarDetailAPIview.as_view()),
     path('car/list/',CarListAPIview.as_view()),
-    path('api/v1/auth/',include('djoser.urls')),
-    re_path(r'^auth/',include('djoser.urls.authtoken'))
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/v1/token/verify/',TokenVerifyView.as_view(), name ='token_verify')
+    # path('api/v1/auth/',include('djoser.urls')),
+    # re_path(r'^auth/',include('djoser.urls.authtoken'))
 
     # path('api/',include(router.urls)),
     # path('cars/list/',CarAllAPIview.as_view({'get':'list'})),
