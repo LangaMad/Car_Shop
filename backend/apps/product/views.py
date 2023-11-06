@@ -22,7 +22,7 @@ class CarDeleteAPIview(DestroyAPIView):
 class CarDetailAPIview(RetrieveUpdateDestroyAPIView):
     serializer_class = CarSerializer
     queryset = Car.objects.all()
-    permission_classes = (IsOwnerOrReadOnly,)
+    permission_classes = (IsAuthenticated,)
 
 class CarListAPIview(ListCreateAPIView):
     serializer_class = CarSerializer
