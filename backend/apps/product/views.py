@@ -11,6 +11,7 @@ from rest_framework.viewsets import *
 from rest_framework.decorators import action
 from rest_framework.permissions import *
 from .permission import IsAdminOrReadOnly,IsOwnerOrReadOnly
+from rest_framework.pagination import PageNumberPagination
 
 
 
@@ -19,16 +20,25 @@ class CarDeleteAPIview(DestroyAPIView):
     serializer_class =  CarSerializer
     queryset = Car.objects.all()
     permission_classes = (IsOwnerOrReadOnly,)
+
+
+
 class CarDetailAPIview(RetrieveUpdateDestroyAPIView):
     serializer_class = CarSerializer
     queryset = Car.objects.all()
     permission_classes = (IsAuthenticated,)
+
+class CarAPIListPagination(PageNumberPagination):
+    page_size = 4
+    page_size_query_param = 'page_size'
+    max_page_size = 3
 
 class CarListAPIview(ListCreateAPIView):
     serializer_class = CarSerializer
     model = Car
     queryset = Car.objects.all()
     permission_classes = (AllowAny,)
+    pagination_class = CarAPIListPagination
 
 
 
