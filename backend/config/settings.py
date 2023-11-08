@@ -16,7 +16,7 @@ import environ
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
-environ.Env.read_env(env_file=os.path.join(BASE_DIR,'.env'))
+environ.Env.read_env(env_file=os.path.join(BASE_DIR,'config/.env'))
 
 'django-insecure-wp-rhzf-50_xo%nmgxxdye)t&zc-*1usrov2(x29h^+i6@$g)a'
 
@@ -129,7 +129,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.OAuth2Authentication',
+        # 'rest_framework.authentication.OAuth2Authentication',
         # 'rest_framework_simplejwt.authentication.JWTAuthentication',
         # 'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.BasicAuthentication',
