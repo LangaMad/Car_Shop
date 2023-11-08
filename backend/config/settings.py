@@ -18,9 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env(env_file=os.path.join(BASE_DIR,'config/.env'))
 
-'django-insecure-wp-rhzf-50_xo%nmgxxdye)t&zc-*1usrov2(x29h^+i6@$g)a'
 
-
+# SECURITY WARNING: don't run with debug turned on in production!
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
