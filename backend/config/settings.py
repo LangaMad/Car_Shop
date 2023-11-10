@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 import environ
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -90,15 +92,15 @@ AUTH_USER_MODEL = "account.User"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':  'car_shop',
-        'USER': 'car_shop1',
-        'PASSWORD': 'qwerty123',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
-    }
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL')),
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'car_shop',
+    'USER': 'car_shop1',
+    'PASSWORD': 'qwerty123',
+    'HOST': 'db',
+    'PORT': '5432'
 }
 
 
